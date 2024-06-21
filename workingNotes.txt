@@ -1,0 +1,9 @@
+Data	:
+ - should each procedure be a separate document as currently is, or be combined to one bigger living/growing file?
+
+
+UI:
+ - how simple/dumb or dynamic/reactive should it be?
+
+Service
+- start dumb and straight forward, but clean up and make more efficient as I go
