@@ -33,6 +33,8 @@ public class ProceduresMongoServiceApplication implements CommandLineRunner {
 
 
 		Scanner scanner = new Scanner(System.in);
+		System.out.println("Procedure ID");
+		String id = scanner.nextLine();
 		System.out.println("Procedure Name");
 		String name = scanner.nextLine();
 		System.out.println("Major Category");
