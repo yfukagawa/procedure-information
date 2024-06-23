@@ -4,6 +4,7 @@ Data	:
 
 UI:
  - how simple/dumb or dynamic/reactive should it be?
+ - procedure-information-ui
 
 Service
 - start dumb and straight forward, but clean up and make more efficient as I go
