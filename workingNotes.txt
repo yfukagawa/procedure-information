@@ -8,3 +8,6 @@ UI:
 
 Service
 - start dumb and straight forward, but clean up and make more efficient as I go
+
+Mongo connection string
+- mongodb+srv://yoshihirofukagawa:<password>@procedureinformation.kiwhsgp.mongodb.net/?retryWrites=true&w=majority&appName=ProcedureInformation
