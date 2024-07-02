@@ -8,10 +8,13 @@ import java.util.List;
 
 public interface ProceduresRepository extends MongoRepository<ProcedureInformation, String> {
     @Query("{procedureName:'?0'}")
-    ProcedureInformation findItemByProcedureName(String procedureName);
+    ProcedureInformation findProcedureByName(String procedureName);
 
-    @Query(value="{majorCategory:'?0'}", fields="{'procedureName' : 1, 'minorCategory' : 1, 'anualMax' : 1, 'deductible' : 1}")
-    List<ProcedureInformation> findAll(String majorCategory);
+    @Query("{procedureId:'?0'}")
+    ProcedureInformation findProcedureById(String id);
+
+    @Query(value="{majorCategory:'?0'}", fields="{'id' : 1, 'procedureName' : 1, 'minorCategory' : 1, 'anualMax' : 1, 'deductible' : 1}")
+    List<ProcedureInformation> findAllInThisMajorCategory(String majorCategory);
 
     public long count();
 }

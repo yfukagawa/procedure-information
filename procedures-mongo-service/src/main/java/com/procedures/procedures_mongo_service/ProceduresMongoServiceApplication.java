@@ -9,6 +9,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
+import java.sql.SQLOutput;
+import java.util.List;
 import java.util.Scanner;
 
 @SpringBootApplication
@@ -49,4 +51,51 @@ public class ProceduresMongoServiceApplication implements CommandLineRunner {
 
 		procedureInfoRepo.save(new ProcedureInformation(id, name, major, minor, max, deductible));
 	}
+
+	public void searchProcedureInformation() {
+		procedureInfoRepo.findAll().forEach(procedureInformation -> System.out.println(getProcedureInformation(procedureInformation)));
+	}
+
+	public void getProcedureInformationById(String id) {
+		System.out.println("Search Procedure by ID: " + id);
+		ProcedureInformation procedureInformation = procedureInfoRepo.findProcedureById(id);
+		System.out.println(getProcedureInformation(procedureInformation));
+	}
+
+	public void getProcedureInformationByProcedureName(String procedureName) {
+		System.out.println("Search Procedure by Name: " + procedureName);
+		ProcedureInformation procedureInformation = procedureInfoRepo.findProcedureByName(procedureName);
+		System.out.println(getProcedureInformation(procedureInformation));
+	}
+
+	public void getAllProceduresInThisMajorCategory(String majorCategory) {
+		System.out.println("Search Procedure by Major Category: " + majorCategory);
+		List<ProcedureInformation> list = procedureInfoRepo.findAllInThisMajorCategory(majorCategory);
+
+		list.forEach(procedureInformation -> System.out.println(getProcedureInformation(procedureInformation)));
+	}
+
+	public String getProcedureInformation (ProcedureInformation procedureInformation) {
+		System.out.println(
+				"Procedure ID: " + procedureInformation.getId() +
+				", Procedure Name: " + procedureInformation.getProcedureName() +
+				", Major Category: " + procedureInformation.getMajorCategory() +
+				", Minor Category: " + procedureInformation.getMinorCategory() +
+				", Annual Max: " + procedureInformation.getAnnualMax() +
+				", Deductible: " + procedureInformation.getDeductible()
+		);
+
+		return "";
+	}
+
+	public void countSearchResut() {
+		long count = procedureInfoRepo.count();
+		System.out.println("There are " + count + " procedures available.");
+	}
+
+	public void deleteProcedure (String id) {
+		procedureInfoRepo.deleteById(id);
+		System.out.println("Procedure ID " + id + " has been deleted.");
+	}
+
 }
