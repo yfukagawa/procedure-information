@@ -27,6 +27,22 @@ public class ProceduresMongoServiceApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
+		System.out.println("Select Action: " +
+				"\n\t 1. Search" +
+				"\n\t 2. Add New");
+		Scanner scanner = new Scanner(System.in);
+		String action = scanner.nextLine();
+
+		if (action.equals("1") || action.equals("Search") || action.equals("search") || action.equals("1. Search")) {
+			searchProcedureInformation();
+		}
+		if (action.equals("2") || action.equals("Add") || action.equals("add") || action.equals("Add New") || action.equals("add new") || action.equals("2. Add New")) {
+			addNewProcedureInformation();
+		}
+		else {
+			System.out.println("Invalid Option. Select Again.");
+			SpringApplication.run(ProceduresMongoServiceApplication.class, args);
+		}
 
 	}
 
