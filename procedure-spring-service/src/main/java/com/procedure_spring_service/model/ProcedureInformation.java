@@ -24,6 +24,16 @@ public class ProcedureInformation {
         this.deductible = deductible;
     }
 
+    @Override
+    public String toString() {
+        return "Procedure [id=" + id +
+        ", procedureName=" + procedureName +
+        ", majorCategory=" + majorCategory +
+        ", minorCategory=" + minorCategory +
+        ", annualMax=" + annualMax +
+        ", deductible=" + deductible + "]";
+    }
+
     public String getId() {
         return id;
     }
