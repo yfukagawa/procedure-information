@@ -7,6 +7,9 @@ import org.springframework.context.annotation.Bean;
 
 import java.time.LocalDateTime;
 
+import static com.java.procedure_spring_mongo_service.Categories.DIAGNOSTIC_AND_PREVENTIVE;
+import static com.java.procedure_spring_mongo_service.Categories.ORAL_EXAMS;
+
 @SpringBootApplication
 public class ProcedureSpringMongoServiceApplication {
 
@@ -20,8 +23,8 @@ public class ProcedureSpringMongoServiceApplication {
 			ProcedureInformation procedureInformation = new ProcedureInformation(
 					"TEST0001",
 					"TEST Data",
-					"TEST MAJOR",
-					"test minor",
+					DIAGNOSTIC_AND_PREVENTIVE,
+					ORAL_EXAMS,
 					"10000",
 					"yes",
 					LocalDateTime.now()

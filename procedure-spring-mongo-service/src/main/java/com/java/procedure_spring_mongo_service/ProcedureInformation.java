@@ -13,16 +13,16 @@ public class ProcedureInformation {
     private String id;
     private String procedureId;
     private String name;
-    private String majorCategory;
-    private String minorCategory;
+    private Categories majorCategory;
+    private Categories minorCategory;
     private String annualMax;
     private String deductible;
     private LocalDateTime created;
 
     public ProcedureInformation(String procedureId,
                                 String name,
-                                String majorCategory,
-                                String minorCategory,
+                                Categories majorCategory,
+                                Categories minorCategory,
                                 String annualMax,
                                 String deductible,
                                 LocalDateTime created) {
