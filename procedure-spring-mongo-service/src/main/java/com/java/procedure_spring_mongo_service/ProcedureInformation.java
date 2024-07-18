@@ -2,6 +2,7 @@ package com.java.procedure_spring_mongo_service;
 
 import lombok.Data;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDateTime;
@@ -11,7 +12,9 @@ import java.time.LocalDateTime;
 public class ProcedureInformation {
     @Id
     private String id;
+    @Indexed(unique = true)
     private String procedureId;
+    @Indexed(unique = true)
     private String name;
     private Categories majorCategory;
     private Categories minorCategory;
